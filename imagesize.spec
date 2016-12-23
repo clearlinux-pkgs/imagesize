@@ -4,7 +4,7 @@
 #
 Name     : imagesize
 Version  : 0.7.1
-Release  : 1
+Release  : 2
 URL      : http://pypi.debian.net/imagesize/imagesize-0.7.1.tar.gz
 Source0  : http://pypi.debian.net/imagesize/imagesize-0.7.1.tar.gz
 Summary  : Getting image size from png/jpeg/jpeg2000/gif file
