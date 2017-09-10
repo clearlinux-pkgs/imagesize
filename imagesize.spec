@@ -4,12 +4,13 @@
 #
 Name     : imagesize
 Version  : 0.7.1
-Release  : 9
+Release  : 10
 URL      : http://pypi.debian.net/imagesize/imagesize-0.7.1.tar.gz
 Source0  : http://pypi.debian.net/imagesize/imagesize-0.7.1.tar.gz
 Summary  : Getting image size from png/jpeg/jpeg2000/gif file
 Group    : Development/Tools
 License  : MIT
+Requires: imagesize-legacypython
 Requires: imagesize-python
 BuildRequires : pbr
 BuildRequires : pip
@@ -27,9 +28,18 @@ It parses image files' header and return image size.
         
         This is a pure Python library.
 
+%package legacypython
+Summary: legacypython components for the imagesize package.
+Group: Default
+
+%description legacypython
+legacypython components for the imagesize package.
+
+
 %package python
 Summary: python components for the imagesize package.
 Group: Default
+Requires: imagesize-legacypython
 
 %description python
 python components for the imagesize package.
@@ -43,12 +53,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1503093503
+export SOURCE_DATE_EPOCH=1505003973
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1503093503
+export SOURCE_DATE_EPOCH=1505003973
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
@@ -59,7 +69,10 @@ echo ----[ mark ]----
 %files
 %defattr(-,root,root,-)
 
-%files python
+%files legacypython
 %defattr(-,root,root,-)
 /usr/lib/python2*/*
+
+%files python
+%defattr(-,root,root,-)
 /usr/lib/python3*/*
