@@ -4,13 +4,14 @@
 #
 Name     : imagesize
 Version  : 0.7.1
-Release  : 11
+Release  : 12
 URL      : http://pypi.debian.net/imagesize/imagesize-0.7.1.tar.gz
 Source0  : http://pypi.debian.net/imagesize/imagesize-0.7.1.tar.gz
 Summary  : Getting image size from png/jpeg/jpeg2000/gif file
 Group    : Development/Tools
 License  : MIT
 Requires: imagesize-legacypython
+Requires: imagesize-python3
 Requires: imagesize-python
 BuildRequires : pbr
 BuildRequires : pip
@@ -40,9 +41,18 @@ legacypython components for the imagesize package.
 Summary: python components for the imagesize package.
 Group: Default
 Requires: imagesize-legacypython
+Requires: imagesize-python3
 
 %description python
 python components for the imagesize package.
+
+
+%package python3
+Summary: python3 components for the imagesize package.
+Group: Default
+
+%description python3
+python3 components for the imagesize package.
 
 
 %prep
@@ -53,12 +63,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1505365306
+export SOURCE_DATE_EPOCH=1506870558
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1505365306
+export SOURCE_DATE_EPOCH=1506870558
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
@@ -74,5 +84,8 @@ echo ----[ mark ]----
 /usr/lib/python2*/*
 
 %files python
+%defattr(-,root,root,-)
+
+%files python3
 %defattr(-,root,root,-)
 /usr/lib/python3*/*
