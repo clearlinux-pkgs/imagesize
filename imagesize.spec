@@ -14,7 +14,7 @@ Requires: imagesize-python3
 Requires: imagesize-python
 BuildRequires : pbr
 BuildRequires : pip
-BuildRequires : python-dev
+
 BuildRequires : python3-dev
 BuildRequires : setuptools
 BuildRequires : setuptools-legacypython
