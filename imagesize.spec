@@ -4,17 +4,17 @@
 #
 Name     : imagesize
 Version  : 1.0.0
-Release  : 25
+Release  : 26
 URL      : http://pypi.debian.net/imagesize/imagesize-1.0.0.tar.gz
 Source0  : http://pypi.debian.net/imagesize/imagesize-1.0.0.tar.gz
 Summary  : Getting image size from png/jpeg/jpeg2000/gif file
 Group    : Development/Tools
 License  : MIT
 Requires: imagesize-python3
+Requires: imagesize-license
 Requires: imagesize-python
 BuildRequires : pbr
 BuildRequires : pip
-
 BuildRequires : python3-dev
 BuildRequires : setuptools
 BuildRequires : setuptools-legacypython
@@ -36,6 +36,14 @@ Requires: python-core
 
 %description legacypython
 legacypython components for the imagesize package.
+
+
+%package license
+Summary: license components for the imagesize package.
+Group: Default
+
+%description license
+license components for the imagesize package.
 
 
 %package python
@@ -64,7 +72,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1528556599
+export SOURCE_DATE_EPOCH=1530327485
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
@@ -72,10 +80,12 @@ python3 setup.py build -b py3
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-PYTHONPATH=%{buildroot}/usr/lib/python3.6/site-packages python3 setup.py test
+PYTHONPATH=%{buildroot}/usr/lib/python3.7/site-packages python3 setup.py test
 %install
-export SOURCE_DATE_EPOCH=1528556599
+export SOURCE_DATE_EPOCH=1530327485
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/doc/imagesize
+cp LICENSE.rst %{buildroot}/usr/share/doc/imagesize/LICENSE.rst
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
 echo ----[ mark ]----
@@ -88,6 +98,10 @@ echo ----[ mark ]----
 %files legacypython
 %defattr(-,root,root,-)
 /usr/lib/python2*/*
+
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/imagesize/LICENSE.rst
 
 %files python
 %defattr(-,root,root,-)
