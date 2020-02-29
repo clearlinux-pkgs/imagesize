@@ -4,7 +4,7 @@
 #
 Name     : imagesize
 Version  : 1.2.0
-Release  : 44
+Release  : 45
 URL      : https://files.pythonhosted.org/packages/e4/9f/0452b459c8ba97e07c3cd2bd243783936a992006cf4cd1353c314a927028/imagesize-1.2.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/e4/9f/0452b459c8ba97e07c3cd2bd243783936a992006cf4cd1353c314a927028/imagesize-1.2.0.tar.gz
 Summary  : Getting image size from png/jpeg/jpeg2000/gif file
@@ -16,10 +16,16 @@ Requires: imagesize-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
 
 %description
-imagesize
-=============
-.. image:: https://travis-ci.org/shibukawa/imagesize_py.svg?branch=master
-:target: https://travis-ci.org/shibukawa/imagesize_py
+It parses image files' header and return image size.
+
+* PNG
+* JPEG
+* JPEG2000
+* GIF
+* TIFF (experimental)
+* SVG
+
+This is a pure Python library.
 
 %package license
 Summary: license components for the imagesize package.
@@ -42,6 +48,7 @@ python components for the imagesize package.
 Summary: python3 components for the imagesize package.
 Group: Default
 Requires: python3-core
+Provides: pypi(imagesize)
 
 %description python3
 python3 components for the imagesize package.
@@ -56,7 +63,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1578153965
+export SOURCE_DATE_EPOCH=1582937499
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
