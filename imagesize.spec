@@ -4,7 +4,7 @@
 #
 Name     : imagesize
 Version  : 1.2.0
-Release  : 47
+Release  : 48
 URL      : https://files.pythonhosted.org/packages/e4/9f/0452b459c8ba97e07c3cd2bd243783936a992006cf4cd1353c314a927028/imagesize-1.2.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/e4/9f/0452b459c8ba97e07c3cd2bd243783936a992006cf4cd1353c314a927028/imagesize-1.2.0.tar.gz
 Summary  : Getting image size from png/jpeg/jpeg2000/gif file
@@ -17,15 +17,15 @@ BuildRequires : buildreq-distutils3
 
 %description
 It parses image files' header and return image size.
-
-* PNG
-* JPEG
-* JPEG2000
-* GIF
-* TIFF (experimental)
-* SVG
-
-This is a pure Python library.
+        
+        * PNG
+        * JPEG
+        * JPEG2000
+        * GIF
+        * TIFF (experimental)
+        * SVG
+        
+        This is a pure Python library.
 
 %package license
 Summary: license components for the imagesize package.
@@ -63,12 +63,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1582937499
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1603393130
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
