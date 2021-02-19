@@ -4,7 +4,7 @@
 #
 Name     : imagesize
 Version  : 1.2.0
-Release  : 51
+Release  : 52
 URL      : https://files.pythonhosted.org/packages/e4/9f/0452b459c8ba97e07c3cd2bd243783936a992006cf4cd1353c314a927028/imagesize-1.2.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/e4/9f/0452b459c8ba97e07c3cd2bd243783936a992006cf4cd1353c314a927028/imagesize-1.2.0.tar.gz
 Summary  : Getting image size from png/jpeg/jpeg2000/gif file
